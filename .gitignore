@@ -14,3 +14,5 @@ __pycache__
 .ipynb_checkpoints
 venv/
 .venv/
+NanoFM_Homeworks/outputs/
+NanoFM_Homeworks/wandb/
