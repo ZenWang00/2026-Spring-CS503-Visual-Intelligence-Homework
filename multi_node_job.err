@@ -1,0 +1,293 @@
++ cat /var/spool/slurmd/job2827553/slurm_script
++ REPO_ROOT=/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework
++ SCRIPT_DIR=/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoFM_Homeworks
++ [[ cfgs/nano4M/multiclevr_d6-6w512.yaml = /* ]]
++ [[ -f /home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/cfgs/nano4M/multiclevr_d6-6w512.yaml ]]
++ [[ -f /home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoFM_Homeworks/cfgs/nano4M/multiclevr_d6-6w512.yaml ]]
++ CONFIG_ABS=/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoFM_Homeworks/cfgs/nano4M/multiclevr_d6-6w512.yaml
++ export MASTER_PORT=25678
++ MASTER_PORT=25678
+++ scontrol show hostnames 'i[40,53]'
+++ head -n 1
++ export MASTER_ADDR=i40
++ MASTER_ADDR=i40
++ export NCCL_DEBUG=INFO
++ NCCL_DEBUG=INFO
+++ conda shell.bash hook
++ eval 'export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    if [ -n "${_CE_M:+x}" ] && [ -n "${_CE_CONDA:+x}" ]; then
+        # only use _CE_M/_CE_CONDA when defined to avoid issues when run with `set -u`
+        "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+    else
+        "$CONDA_EXE" "$@"
+    fi
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    # FUTURE: conda 25.9, remove this function
+    echo "'\''__conda_reactivate'\'' is deprecated and will be removed in 25.9. Use '\''__conda_activate reactivate'\'' instead." 1>&2
+    __conda_activate reactivate
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_activate reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate '\''base'\'''
+++ export CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ export _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
+++ CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
+++ export _CONDA_ROOT=/home/zitwang/miniforge3
+++ _CONDA_ROOT=/home/zitwang/miniforge3
+++ '[' -z x ']'
+++ conda activate base
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate base
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate base
++++ '[' -n '' ']'
++++ /home/zitwang/miniforge3/bin/conda shell.posix activate base
+++ ask_conda='export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(base) '\''
+export PATH='\''/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/miniforge3/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\''
+. "/home/zitwang/miniforge3/etc/conda/activate.d/libxml2-split_activate.sh"'
+++ eval 'export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(base) '\''
+export PATH='\''/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/miniforge3/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\''
+. "/home/zitwang/miniforge3/etc/conda/activate.d/libxml2-split_activate.sh"'
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ PS1='(base) '
++++ export PATH=/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/miniforge3/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin
++++ PATH=/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/miniforge3/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/home/zitwang/miniforge3/bin/conda
++++ CONDA_EXE=/home/zitwang/miniforge3/bin/conda
++++ export _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
++++ _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
++++ export CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
++++ CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
++++ export _CONDA_ROOT=/home/zitwang/miniforge3
++++ _CONDA_ROOT=/home/zitwang/miniforge3
++++ . /home/zitwang/miniforge3/etc/conda/activate.d/libxml2-split_activate.sh
+++++ test -n 'file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ xml_catalog_files_libxml2='file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ XML_CATALOG_FILES='file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog '
+++++ conda_catalog_files=
+++++ ifs_libxml2=' 	
+'
+++++ IFS=' '
+++++ rem=/home/zitwang/miniforge3
+++++ for pre in ${rem}
+++++ test '' = /home/zitwang/miniforge3
+++++ conda_catalog_files=/home/zitwang/miniforge3
+++++ rem=
+++++ IFS=' 	
+'
+++++ conda_catalog_files='file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ export 'XML_CATALOG_FILES=file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ XML_CATALOG_FILES='file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ unset conda_catalog_files ifs_libxml2 rem
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate nanofm
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate nanofm
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate nanofm
+++ '[' -n '' ']'
+++ /home/zitwang/miniforge3/bin/conda shell.posix activate nanofm
++ ask_conda='export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(nanofm) '\''
+export PATH='\''/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/miniforge3/envs/nanofm/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin'\''
+export CONDA_PREFIX='\''/home/zitwang/miniforge3/envs/nanofm'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''nanofm'\''
+export CONDA_PROMPT_MODIFIER='\''(nanofm) '\''
+export CONDA_PREFIX_1='\''/home/zitwang/miniforge3'\''
+export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\'''
++ eval 'export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(nanofm) '\''
+export PATH='\''/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/miniforge3/envs/nanofm/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin'\''
+export CONDA_PREFIX='\''/home/zitwang/miniforge3/envs/nanofm'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''nanofm'\''
+export CONDA_PROMPT_MODIFIER='\''(nanofm) '\''
+export CONDA_PREFIX_1='\''/home/zitwang/miniforge3'\''
+export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\'''
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ PS1='(nanofm) '
+++ export PATH=/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/miniforge3/envs/nanofm/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin
+++ PATH=/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/.cursor-server/bin/linux-x64/48a15759f53cd5fc9b5c20936ad7d79847d914b0/bin/remote-cli:/home/zitwang/miniforge3/envs/nanofm/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin
+++ export CONDA_PREFIX=/home/zitwang/miniforge3/envs/nanofm
+++ CONDA_PREFIX=/home/zitwang/miniforge3/envs/nanofm
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=nanofm
+++ CONDA_DEFAULT_ENV=nanofm
+++ export 'CONDA_PROMPT_MODIFIER=(nanofm) '
+++ CONDA_PROMPT_MODIFIER='(nanofm) '
+++ export CONDA_PREFIX_1=/home/zitwang/miniforge3
+++ CONDA_PREFIX_1=/home/zitwang/miniforge3
+++ export CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ export _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ export CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
+++ CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
+++ export _CONDA_ROOT=/home/zitwang/miniforge3
+++ _CONDA_ROOT=/home/zitwang/miniforge3
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ srun --kill-on-bad-exit=1 bash -c '
+  cd "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoFM_Homeworks"
+
+  TORCHRUN_ARGS="--node-rank=${SLURM_PROCID}      --master-addr=${MASTER_ADDR}      --master-port=${MASTER_PORT}      --nnodes=${SLURM_NNODES}      --nproc-per-node=2"
+
+  echo ${SLURM_PROCID}
+  echo ${TORCHRUN_ARGS}
+  echo ${SLURMD_NODENAME}
+
+  OMP_NUM_THREADS=1 torchrun ${TORCHRUN_ARGS} run_training.py     --config "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoFM_Homeworks/cfgs/nano4M/multiclevr_d6-6w512.yaml"
+'
+[rank1]:[W409 09:12:26.429383958 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
+[rank3]:[W409 09:12:26.435199455 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 3]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
+[rank2]:[W409 09:12:26.514993080 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 2]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
+[rank0]:[W409 09:12:26.536067307 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/zitwang/.netrc.
+wandb: Currently logged in as: zitian_wang (zitian_wang-epfl) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run y45v3xkm
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoFM_Homeworks/wandb/run-20260409_091228-y45v3xkm
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run multiclevr_d6-6w512
+wandb: ⭐️ View project at https://wandb.ai/zitian_wang-epfl/CS503_nano4M
+wandb: 🚀 View run at https://wandb.ai/zitian_wang-epfl/CS503_nano4M/runs/y45v3xkm
+/home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/torch/utils/data/dataloader.py:624: UserWarning: This DataLoader will create 10 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/torch/utils/data/dataloader.py:624: UserWarning: This DataLoader will create 10 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/torch/utils/data/dataloader.py:624: UserWarning: This DataLoader will create 10 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/torch/utils/data/dataloader.py:624: UserWarning: This DataLoader will create 10 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+[rank2]:[W409 14:02:41.198008763 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank0]:[W409 14:02:45.241724767 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

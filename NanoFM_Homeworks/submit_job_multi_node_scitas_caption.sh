@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=multi_node_job
+#SBATCH --job-name=multi_node_caption
 #SBATCH --time=12:00:00
 #SBATCH --account=cs-503
 #SBATCH --qos=cs-503
@@ -8,17 +8,19 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=64G
-#SBATCH --output=multi_node_job.out
-#SBATCH --error=multi_node_job.err
+#SBATCH --output=multi_node_caption.out
+#SBATCH --error=multi_node_caption.err
 
 # === Accept arguments ===
-CONFIG_FILE=$1       # First argument (path to yaml config)
-
+# Usage:
+#   sbatch submit_job_multi_node_scitas_caption.sh <config.yaml>
+# If omitted, it falls back to the default nano4M config path.
+CONFIG_FILE="${1:-cfgs/nano4M/multiclevr_d6-6w512.yaml}"
 
 # === Initialization ===
 set -euo pipefail
 set -x
-cat $0
+cat "$0"
 
 # IMPORTANT: Slurm executes a copied script from /var/spool/slurmd/...
 # so BASH_SOURCE[0] points to the spool location. Use SLURM_SUBMIT_DIR
@@ -67,4 +69,3 @@ srun --kill-on-bad-exit=1 bash -c "
   OMP_NUM_THREADS=1 torchrun \${TORCHRUN_ARGS} run_training.py \
     --config \"${CONFIG_ABS}\"
 "
-

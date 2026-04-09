@@ -32,7 +32,7 @@ save_ckpt_freq: 1000 # in millions of tokens
 # Logging
 log_wandb: True
 wandb_project: CS503_nano4M # wandb project name
-wandb_entity: <YOUR_WANDB_ENTITY_NAME> # Set to your wandb username
+wandb_entity: zitian_wang-epfl # Set to your wandb username
 wandb_run_name: auto # Set to auto to use the run_name
 
 # Model config
@@ -58,7 +58,7 @@ model_config:
 # Train loader config
 train_loader_config:
   _target_: nanofm.data.multimodal.create_multimodal_masked_dataloader
-  root_dir: clevr # REPLACE WITH YOUR DATASET PATH
+  root_dir: ../clevr_com_304 # Multi-CLEVR root (train/val/test + modality subdirs); relative to NanoFM_Homeworks cwd
   split: train
   modalities: ${global_vars.modalities}
   vocab_sizes: ${global_vars.vocab_sizes}
@@ -83,7 +83,7 @@ train_loader_config:
 # Eval loader config
 eval_loader_config:
   _target_: nanofm.data.multimodal.create_multimodal_masked_dataloader
-  root_dir: clevr # REPLACE WITH YOUR DATASET PATH
+  root_dir: ../clevr_com_304 # same as train_loader
   split: val
   modalities: ${global_vars.modalities}
   vocab_sizes: ${global_vars.vocab_sizes}

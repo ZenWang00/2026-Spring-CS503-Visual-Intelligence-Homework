@@ -1,0 +1,266 @@
++ cat /var/spool/slurmd/job2827381/slurm_script
++ export MASTER_PORT=25678
++ MASTER_PORT=25678
+++ scontrol show hostnames 'i[51,60]'
+++ head -n 1
++ export MASTER_ADDR=i51
++ MASTER_ADDR=i51
++ export WANDB_API_KEY=
++ WANDB_API_KEY=
++ export NCCL_DEBUG=INFO
++ NCCL_DEBUG=INFO
+++ conda shell.bash hook
++ eval 'export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    if [ -n "${_CE_M:+x}" ] && [ -n "${_CE_CONDA:+x}" ]; then
+        # only use _CE_M/_CE_CONDA when defined to avoid issues when run with `set -u`
+        "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+    else
+        "$CONDA_EXE" "$@"
+    fi
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    # FUTURE: conda 25.9, remove this function
+    echo "'\''__conda_reactivate'\'' is deprecated and will be removed in 25.9. Use '\''__conda_activate reactivate'\'' instead." 1>&2
+    __conda_activate reactivate
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_activate reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate '\''base'\'''
+++ export CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ export _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
+++ CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
+++ export _CONDA_ROOT=/home/zitwang/miniforge3
+++ _CONDA_ROOT=/home/zitwang/miniforge3
+++ '[' -z x ']'
+++ conda activate base
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate base
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate base
++++ '[' -n '' ']'
++++ /home/zitwang/miniforge3/bin/conda shell.posix activate base
+++ ask_conda='export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(base) '\''
+export PATH='\''/home/zitwang/miniforge3/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\''
+. "/home/zitwang/miniforge3/etc/conda/activate.d/libxml2-split_activate.sh"'
+++ eval 'export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(base) '\''
+export PATH='\''/home/zitwang/miniforge3/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\''
+. "/home/zitwang/miniforge3/etc/conda/activate.d/libxml2-split_activate.sh"'
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ PS1='(base) '
++++ export PATH=/home/zitwang/miniforge3/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin
++++ PATH=/home/zitwang/miniforge3/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/home/zitwang/miniforge3/bin/conda
++++ CONDA_EXE=/home/zitwang/miniforge3/bin/conda
++++ export _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
++++ _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
++++ export CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
++++ CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
++++ export _CONDA_ROOT=/home/zitwang/miniforge3
++++ _CONDA_ROOT=/home/zitwang/miniforge3
++++ . /home/zitwang/miniforge3/etc/conda/activate.d/libxml2-split_activate.sh
+++++ test -n 'file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ xml_catalog_files_libxml2='file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ XML_CATALOG_FILES='file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog '
+++++ conda_catalog_files=
+++++ ifs_libxml2=' 	
+'
+++++ IFS=' '
+++++ rem=/home/zitwang/miniforge3
+++++ for pre in ${rem}
+++++ test '' = /home/zitwang/miniforge3
+++++ conda_catalog_files=/home/zitwang/miniforge3
+++++ rem=
+++++ IFS=' 	
+'
+++++ conda_catalog_files='file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ export 'XML_CATALOG_FILES=file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ XML_CATALOG_FILES='file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog file:///home/zitwang/miniforge3/etc/xml/catalog file:///etc/xml/catalog'
+++++ unset conda_catalog_files ifs_libxml2 rem
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate nanofm
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate nanofm
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate nanofm
+++ '[' -n '' ']'
+++ /home/zitwang/miniforge3/bin/conda shell.posix activate nanofm
++ ask_conda='export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(nanofm) '\''
+export PATH='\''/home/zitwang/miniforge3/envs/nanofm/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin'\''
+export CONDA_PREFIX='\''/home/zitwang/miniforge3/envs/nanofm'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''nanofm'\''
+export CONDA_PROMPT_MODIFIER='\''(nanofm) '\''
+export CONDA_PREFIX_1='\''/home/zitwang/miniforge3'\''
+export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\'''
++ eval 'export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(nanofm) '\''
+export PATH='\''/home/zitwang/miniforge3/envs/nanofm/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin'\''
+export CONDA_PREFIX='\''/home/zitwang/miniforge3/envs/nanofm'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''nanofm'\''
+export CONDA_PROMPT_MODIFIER='\''(nanofm) '\''
+export CONDA_PREFIX_1='\''/home/zitwang/miniforge3'\''
+export CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export _CONDA_EXE='\''/home/zitwang/miniforge3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/zitwang/miniforge3/bin/python'\''
+export _CONDA_ROOT='\''/home/zitwang/miniforge3'\'''
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ PS1='(nanofm) '
+++ export PATH=/home/zitwang/miniforge3/envs/nanofm/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin
+++ PATH=/home/zitwang/miniforge3/envs/nanofm/bin:/home/zitwang/miniforge3/condabin:/home/zitwang/.local/bin:/home/zitwang/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin
+++ export CONDA_PREFIX=/home/zitwang/miniforge3/envs/nanofm
+++ CONDA_PREFIX=/home/zitwang/miniforge3/envs/nanofm
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=nanofm
+++ CONDA_DEFAULT_ENV=nanofm
+++ export 'CONDA_PROMPT_MODIFIER=(nanofm) '
+++ CONDA_PROMPT_MODIFIER='(nanofm) '
+++ export CONDA_PREFIX_1=/home/zitwang/miniforge3
+++ CONDA_PREFIX_1=/home/zitwang/miniforge3
+++ export CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ export _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ _CONDA_EXE=/home/zitwang/miniforge3/bin/conda
+++ export CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
+++ CONDA_PYTHON_EXE=/home/zitwang/miniforge3/bin/python
+++ export _CONDA_ROOT=/home/zitwang/miniforge3
+++ _CONDA_ROOT=/home/zitwang/miniforge3
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ srun bash -c '
+  TORCHRUN_ARGS="--node-rank=${SLURM_PROCID}      --master-addr=${MASTER_ADDR}      --master-port=${MASTER_PORT}      --nnodes=${SLURM_NNODES}      --nproc-per-node=2"
+
+  echo ${SLURM_PROCID}
+  echo ${TORCHRUN_ARGS}
+  echo ${SLURMD_NODENAME}
+
+  torchrun ${TORCHRUN_ARGS} run_training.py     --config cfgs/nano4M/multiclevr_d6-6w512.yaml
+'
+Traceback (most recent call last):
+  File "/home/zitwang/miniforge3/envs/nanofm/bin/torchrun", line 3, in <module>
+    from torch.distributed.run import main
+  File "/home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/torch/__init__.py", line 442, in <module>
+    from torch._C import *  # noqa: F403
+ImportError: /home/zitwang/miniforge3/envs/nanofm/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so: undefined symbol: ncclDevCommDestroy
+srun: error: i51: task 0: Exited with exit code 1
+srun: Terminating StepId=2827381.0
+srun: error: i60: task 1: Terminated
+srun: Force Terminated StepId=2827381.0
