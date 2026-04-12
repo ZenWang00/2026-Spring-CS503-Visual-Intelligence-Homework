@@ -15,7 +15,7 @@
 # Usage:
 #   sbatch submit_job_multi_node_scitas_caption.sh <config.yaml>
 # If omitted, it falls back to the default nano4M config path.
-CONFIG_FILE="${1:-cfgs/nano4M/multiclevr_d6-6w512.yaml}"
+CONFIG_FILE="${1:-cfgs/nano4M/multiclevr_d6-6w512_caption.yaml}"
 
 # === Initialization ===
 set -euo pipefail
