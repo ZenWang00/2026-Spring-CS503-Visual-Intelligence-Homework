@@ -168,7 +168,7 @@ def train(train_cfg, vlm_cfg, is_distributed=False, rank=0, world_size=1, local_
                         val_attention_mask = val_batch["attention_mask"].to(device)
 
                         with torch.amp.autocast(
-                            device_type="cuda", dtype=torch.float16
+                            device_type="cuda", dtype=torch.bfloat16
                         ):
                             _, v_loss = model(
                                 val_input_ids,
@@ -239,7 +239,7 @@ def train(train_cfg, vlm_cfg, is_distributed=False, rank=0, world_size=1, local_
                 sync_context = contextlib.nullcontext()
 
             with sync_context:
-                with torch.amp.autocast(device_type="cuda", dtype=torch.float16):
+                with torch.amp.autocast(device_type="cuda", dtype=torch.bfloat16):
                     _, loss = model(
                         input_ids, images, attention_mask=attention_mask, targets=labels
                     )
