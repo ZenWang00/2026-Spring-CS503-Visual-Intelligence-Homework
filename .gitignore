@@ -18,6 +18,9 @@ venv/
 .venv/
 NanoFM_Homeworks/outputs/
 NanoFM_Homeworks/wandb/
+NanoFM_Homeworks/data/
+NanoVLM_Homework/*.err
+NanoVLM_Homework/*.out
 */wandb/*
 */checkpoints/*
 clevr_com_304/
