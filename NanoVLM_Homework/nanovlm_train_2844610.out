@@ -1,0 +1,11 @@
+SLURM_JOB_ID=2844610
+HOSTNAME=i45
+HF_HOME=/home/zitwang/nanovlm_hf_cache/hf_home
+HF_DATASETS_CACHE=/home/zitwang/nanovlm_hf_cache/hf_datasets_cache
+TMPDIR=/home/zitwang/nanovlm_hf_cache/tmp
+--- VLM Config ---
+VLMConfig(vit_hidden_dim=768, vit_inter_dim=3072, vit_patch_size=16, vit_img_size=224, vit_n_heads=12, vit_dropout=0.0, vit_n_blocks=12, vit_ln_eps=1e-06, vit_cls_flag=False, vit_model_type='google/siglip-base-patch16-224', lm_hidden_dim=576, lm_inter_dim=1536, lm_rms_eps=1e-05, lm_re_base=100000, lm_max_position_embeddings=8192, lm_vocab_size=49152, lm_n_heads=9, lm_n_kv_heads=3, lm_dropout=0.0, lm_n_blocks=30, lm_attn_scaling=1.0, lm_max_length=79, lm_use_tokens=False, lm_tie_weights=True, lm_model_type='HuggingFaceTB/SmolLM2-135M', lm_tokenizer='HuggingFaceTB/cosmo2-tokenizer', lm_eos_token_id=2, mp_pixel_shuffle_factor=2, vlm_load_backbone_weights=True, vlm_checkpoint_path='checkpoints/nanoVLM-222M')
+--- Train Config ---
+TrainConfig(lr_mp=0.002, lr_backbones=0.0001, data_cutoff_idx=None, val_ratio=0.01, batch_size=64, mmstar_batch_size=64, gradient_accumulation_steps=2, eval_in_epochs=True, epochs=2, compile=True, resume_from_vlm_checkpoint=False, train_dataset_path='/work/cs-503/prepared/the_cauldron', train_dataset_name=('ai2d', 'aokvqa', 'chart2text', 'chartqa', 'clevr', 'cocoqa', 'datikz', 'diagram_image_to_text', 'docvqa', 'dvqa', 'figureqa', 'finqa', 'geomverse', 'hateful_memes', 'hitab', 'iam', 'iconqa', 'infographic_vqa', 'intergps', 'localized_narratives', 'mapqa', 'multihiertt', 'ocrvqa', 'plotqa', 'raven', 'rendered_text', 'robut_sqa', 'robut_wikisql', 'robut_wtq', 'scienceqa', 'screen2words', 'st_vqa', 'tabmwp', 'tallyqa', 'tat_qa', 'textcaps', 'textvqa', 'tqa', 'vistext', 'visual7w', 'visualmrc', 'vqarad', 'vqav2', 'vsr', 'websight'), test_dataset_path='Lin-Chen/MMStar', wandb_entity='zitian_wang-epfl', log_wandb=True)
+Loading from backbone weights
+Successfully loaded google/siglip-base-patch16-224 weights from safetensors. Model has 85,797,120 parameters.

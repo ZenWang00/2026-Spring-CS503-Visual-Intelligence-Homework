@@ -1,0 +1,77 @@
+Using the latest cached version of the dataset since Lin-Chen/MMStar couldn't be found on the Hugging Face Hub
+Using the latest cached version of the dataset since Lin-Chen/MMStar couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'val' at /home/zitwang/nanovlm_hf_cache/hf_datasets_cache/Lin-Chen___mm_star/val/0.0.0/bc98d668301da7b14f648724866e57302778ab27 (last modified on Thu Apr 23 20:59:06 2026).
+Found the latest cached dataset configuration 'val' at /home/zitwang/nanovlm_hf_cache/hf_datasets_cache/Lin-Chen___mm_star/val/0.0.0/bc98d668301da7b14f648724866e57302778ab27 (last modified on Thu Apr 23 20:59:06 2026).
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/utils/data/dataloader.py:424: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/utils/data/dataloader.py:424: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from WANDB_API_KEY.
+wandb: Currently logged in as: zitian_wang (zitian_wang-epfl) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 0cwgppme
+wandb: Tracking run with wandb version 0.24.1
+wandb: Run data is saved locally in /home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/wandb/run-20260423_211701-0cwgppme
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run nanoVLM_1655332samples_bs64_ep2_lr0.0001-0.002_0423
+wandb: ⭐️ View project at https://wandb.ai/zitian_wang-epfl/nanoVLM
+wandb: 🚀 View run at https://wandb.ai/zitian_wang-epfl/nanoVLM/runs/0cwgppme
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/utils/data/dataloader.py:432: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/utils/data/dataloader.py:432: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:2900: UserWarning: Tesla V100-PCIE-32GB does not support bfloat16 compilation natively, skipping
+  warnings.warn(
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/utils/data/dataloader.py:432: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/utils/data/dataloader.py:432: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()

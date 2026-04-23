@@ -1,0 +1,75 @@
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/utils/data/dataloader.py:424: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/utils/data/dataloader.py:424: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/train.py", line 75, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/train.py", line 69, in main
+[rank0]:     train(train_cfg, vlm_cfg, is_distributed, rank, world_size, local_rank)
+[rank0]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/training/trainer.py", line 47, in train
+[rank0]:     run = wandb.init(
+[rank0]:           ^^^^^^^^^^^
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 1595, in init
+[rank0]:     get_sentry().reraise(e)
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/wandb/analytics/sentry.py", line 190, in reraise
+[rank0]:     raise exc.with_traceback(tb)
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 1516, in init
+[rank0]:     wi.maybe_login(init_settings)
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 196, in maybe_login
+[rank0]:     wandb_login._login(
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 190, in _login
+[rank0]:     auth = _find_or_prompt_for_key(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 266, in _find_or_prompt_for_key
+[rank0]:     auth = wbauth.authenticate_session(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 126, in authenticate_session
+[rank0]:     if not relogin and (auth := _use_system_auth(host=host, source=source)):
+[rank0]:                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 187, in _use_system_auth
+[rank0]:     _try_env_auth(host=host)  #
+[rank0]:     ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 224, in _try_env_auth
+[rank0]:     raise AuthenticationError(f"{env.API_KEY} invalid: {e}") from None
+[rank0]: wandb.errors.errors.AuthenticationError: WANDB_API_KEY invalid: API key must have 40+ characters, has 36.
+W0423 21:03:23.338000 2648509 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 2648530 closing signal SIGTERM
+E0423 21:03:23.453000 2648509 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 0 (pid: 2648529) of binary: /home/zitwang/miniforge3/envs/nanovlm/bin/python3.12
+Traceback (most recent call last):
+  File "/home/zitwang/miniforge3/envs/nanovlm/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-23_21:03:23
+  host      : i45.izar.cluster
+  rank      : 1 (local_rank: 1)
+  exitcode  : -15 (pid: 2648530)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 2648530
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-23_21:03:23
+  host      : i45.izar.cluster
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2648529)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

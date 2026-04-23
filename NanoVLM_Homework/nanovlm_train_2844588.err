@@ -1,0 +1,79 @@
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/train.py", line 75, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/train.py", line 69, in main
+[rank0]:     train(train_cfg, vlm_cfg, is_distributed, rank, world_size, local_rank)
+[rank0]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/training/trainer.py", line 36, in train
+[rank0]:     train_loader, val_loader, test_loader = get_dataloaders(
+[rank0]:                                             ^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/training/data.py", line 31, in get_dataloaders
+[rank0]:     test_ds = load_dataset(train_cfg.test_dataset_path)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/datasets/load.py", line 1488, in load_dataset
+[rank0]:     builder_instance = load_dataset_builder(
+[rank0]:                        ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/datasets/load.py", line 1133, in load_dataset_builder
+[rank0]:     dataset_module = dataset_module_factory(
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/datasets/load.py", line 1028, in dataset_module_factory
+[rank0]:     raise FileNotFoundError(
+[rank0]: FileNotFoundError: Couldn't find any data file at /home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/Lin-Chen/MMStar. Couldn't find 'Lin-Chen/MMStar' on the Hugging Face Hub either: LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/train.py", line 75, in <module>
+[rank1]:     main()
+[rank1]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/train.py", line 69, in main
+[rank1]:     train(train_cfg, vlm_cfg, is_distributed, rank, world_size, local_rank)
+[rank1]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/training/trainer.py", line 36, in train
+[rank1]:     train_loader, val_loader, test_loader = get_dataloaders(
+[rank1]:                                             ^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/training/data.py", line 31, in get_dataloaders
+[rank1]:     test_ds = load_dataset(train_cfg.test_dataset_path)
+[rank1]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/datasets/load.py", line 1488, in load_dataset
+[rank1]:     builder_instance = load_dataset_builder(
+[rank1]:                        ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/datasets/load.py", line 1133, in load_dataset_builder
+[rank1]:     dataset_module = dataset_module_factory(
+[rank1]:                      ^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/datasets/load.py", line 1028, in dataset_module_factory
+[rank1]:     raise FileNotFoundError(
+[rank1]: FileNotFoundError: Couldn't find any data file at /home/zitwang/2026-Spring-CS503-Visual-Intelligence-Homework/NanoVLM_Homework/Lin-Chen/MMStar. Couldn't find 'Lin-Chen/MMStar' on the Hugging Face Hub either: LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+E0423 20:32:43.893000 944253 site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 0 (pid: 944299) of binary: /home/zitwang/miniforge3/envs/nanovlm/bin/python3.12
+Traceback (most recent call last):
+  File "/home/zitwang/miniforge3/envs/nanovlm/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zitwang/miniforge3/envs/nanovlm/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-23_20:32:43
+  host      : i01.izar.cluster
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 944300)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-23_20:32:43
+  host      : i01.izar.cluster
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 944299)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
