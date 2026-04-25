@@ -56,3 +56,4 @@ class TrainConfig:
     test_dataset_path: str = "Lin-Chen/MMStar"
     wandb_entity: str = "zitian_wang-epfl" # Indicate the entity to log to in wandb
     log_wandb: bool = True
+    checkpoint_interval_minutes: int = 60  # Save a resumable checkpoint every N minutes.

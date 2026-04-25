@@ -15,6 +15,15 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 import os
 
 
+def _unwrap_model(model, is_distributed=False):
+    current_model = model
+    if hasattr(current_model, "_orig_mod"):
+        current_model = current_model._orig_mod
+    if is_distributed and hasattr(current_model, "module"):
+        current_model = current_model.module
+    return current_model
+
+
 def get_grad_norm_(parameters, norm_type: float = 2.0) -> torch.Tensor:
     if isinstance(parameters, torch.Tensor):
         parameters = [parameters]
@@ -80,6 +89,26 @@ def train(train_cfg, vlm_cfg, is_distributed=False, rank=0, world_size=1, local_
         len(train_loader) + train_cfg.gradient_accumulation_steps - 1
     ) // train_cfg.gradient_accumulation_steps
     max_steps = steps_per_epoch * train_cfg.epochs
+    checkpoint_interval_seconds = max(1, train_cfg.checkpoint_interval_minutes) * 60
+    last_checkpoint_time = time.time()
+
+    def save_training_checkpoint(reason: str, is_best: bool = False):
+        current_model = _unwrap_model(model, is_distributed=is_distributed)
+        current_model.save_pretrained(save_directory=vlm_cfg.vlm_checkpoint_path)
+        opt_save_path = os.path.join(vlm_cfg.vlm_checkpoint_path, "optimizer.pt")
+        torch.save(
+            {
+                "optimizer_state_dict": optimizer.state_dict(),
+                "global_step": global_step,
+                "best_accuracy": best_accuracy,
+            },
+            opt_save_path,
+        )
+        if rank == 0:
+            best_tag = " (new best)" if is_best else ""
+            print(
+                f"Checkpoint saved at step {global_step} to {vlm_cfg.vlm_checkpoint_path} | reason: {reason}{best_tag}"
+            )
 
     # Load optimizer and training state if resuming
     if train_cfg.resume_from_vlm_checkpoint:
@@ -188,20 +217,7 @@ def train(train_cfg, vlm_cfg, is_distributed=False, rank=0, world_size=1, local_
                 if rank == 0:
                     if epoch_accuracy > best_accuracy:
                         best_accuracy = epoch_accuracy
-                        current_model.save_pretrained(
-                            save_directory=vlm_cfg.vlm_checkpoint_path
-                        )
-                        opt_save_path = os.path.join(
-                            vlm_cfg.vlm_checkpoint_path, "optimizer.pt"
-                        )
-                        torch.save(
-                            {
-                                "optimizer_state_dict": optimizer.state_dict(),
-                                "global_step": global_step,
-                                "best_accuracy": best_accuracy,
-                            },
-                            opt_save_path,
-                        )
+                        save_training_checkpoint(reason="eval_improved", is_best=True)
                         print(
                             f"Step: {global_step}, Loss: {total_train_loss/max(1, i):.4f}, Val Loss: {avg_val_loss:.4f}, Accuracy: {epoch_accuracy:.4f} | Saving checkpoint to {vlm_cfg.vlm_checkpoint_path}"
                         )
@@ -277,6 +293,11 @@ def train(train_cfg, vlm_cfg, is_distributed=False, rank=0, world_size=1, local_
                 optimizer.zero_grad()
                 global_step += 1
 
+                current_time = time.time()
+                if rank == 0 and (current_time - last_checkpoint_time) >= checkpoint_interval_seconds:
+                    save_training_checkpoint(reason=f"periodic_{train_cfg.checkpoint_interval_minutes}min")
+                    last_checkpoint_time = current_time
+
                 if rank == 0 and train_cfg.log_wandb:
                     run.log(
                         {
@@ -320,6 +341,7 @@ def train(train_cfg, vlm_cfg, is_distributed=False, rank=0, world_size=1, local_
             )
 
     if rank == 0:
+        save_training_checkpoint(reason="training_end")
         # Summary Statistics
         avg_epoch_time = sum(epoch_times) / len(epoch_times)
         total_training_time = sum(epoch_times)
@@ -328,11 +350,7 @@ def train(train_cfg, vlm_cfg, is_distributed=False, rank=0, world_size=1, local_
         print(f"Average time per epoch: {avg_epoch_time:.2f}s")
         print(f"Average time per sample: {avg_time_per_sample:.4f}s")
 
-        current_model = model
-        if hasattr(current_model, "_orig_mod"):
-            current_model = current_model._orig_mod
-        if is_distributed and hasattr(current_model, "module"):
-            current_model = current_model.module
+        current_model = _unwrap_model(model, is_distributed=is_distributed)
         accuracy = test_mmstar(current_model, tokenizer, test_loader, device)
         print(f"MMStar Accuracy: {accuracy:.4f}")
 
